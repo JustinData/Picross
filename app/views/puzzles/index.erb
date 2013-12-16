@@ -1,0 +1,7 @@
+index erb son
+
+<ul>
+	<% @puzzles.each do |p|%>
+		<li><%= link_to "#{p.name} #{p.x_size}x#{p.y_size}", puzzle_path(p[:id]) %></li>
+	<% end %>
+</ul>
