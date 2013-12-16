@@ -45,3 +45,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'foreigner'
+
+group :development do
+	gem 'pry-rails'
+end

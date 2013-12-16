@@ -1,14 +1,6 @@
 class Puzzle < ActiveRecord::Base
 	has_many :cells
-
 	attr_reader :puzzle_array, :filled_cells
-
-	def initialize
-		@filled_cells 
-		@puzzle_array
-
-		get_cells
-	end
 
 	def get_cells
 		@filled_cells = Cell.where(puzzle_id: self.id)
@@ -42,6 +34,12 @@ class Puzzle < ActiveRecord::Base
 		puts @puzzle_array[2]
 		puts @puzzle_array[3]
 		puts @puzzle_array[4]
+	end
+
+	def setup_board
+		get_cells
+		ready_array
+		populate_array	
 	end
 end
 

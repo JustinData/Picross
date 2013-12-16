@@ -1,3 +1,18 @@
+<% px = @puzzle.x_size %>
+<% py = @puzzle.y_size %>
 
 <%= @puzzle.name %><br>
-<%= @puzzle.x_size.to_s + "x" + @puzzle.y_size.to_s %>
+<%= px.to_s + "x" + py.to_s %><br><br>
+
+<% ci = 0 %>
+<% py.times do |r| %>
+	<div class="row" style="float: left;">
+		<% ri = 0 %>
+		<% px.times do |c| %>
+			<div class="cell" id= <%= "x" + ci.to_s + "y" + ri.to_s %> style="background-color: DimGray; width: 50px; height: 50px; border: 1px solid;"></div>
+			<% ri += 1 %>
+		<% end %>
+		<% ci += 1 %>
+	</div>
+
+<% end %>
