@@ -5,7 +5,7 @@ function getPuzzle(){
 	var currentPuzzle = currentUrl.substring(currentUrl.indexOf("s/")+2);
 	var puzzleId = parseInt(currentPuzzle);
 
-	var urlToUse = "/json/puzzles/" + puzzleId + "/getboard" //" + 9 "
+	var urlToUse = "/json/puzzles/" + puzzleId + "/getboard" 
 	$.ajax({
 		url: urlToUse,
 		type: "GET",

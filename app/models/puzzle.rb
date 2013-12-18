@@ -2,10 +2,13 @@ class Puzzle < ActiveRecord::Base
 	has_many :cells
 	attr_reader :puzzle_array, :filled_cells
 
+	# Get the filled cells for the puzzle
 	def get_cells
 		@filled_cells = Cell.where(puzzle_id: self.id)
 	end
 
+	# Prepares a 2D array of the appropriate size
+	# Each value in the array is 0
 	def ready_array
 		@puzzle_array = []
 		xsize = self.x_size 
@@ -20,6 +23,8 @@ class Puzzle < ActiveRecord::Base
 		puts @puzzle_array
 	end
 
+	# Adjusts the 2D array to contain the filled cells
+	# Filled cells have a value of 1
 	def populate_array
 		@filled_cells.each do |c|
 			x = c[:x]
@@ -28,14 +33,7 @@ class Puzzle < ActiveRecord::Base
 		end
 	end
 
-	def put_it
-		puts @puzzle_array[0]
-		puts @puzzle_array[1]
-		puts @puzzle_array[2]
-		puts @puzzle_array[3]
-		puts @puzzle_array[4]
-	end
-
+	# Called by the controller to prepare the game board for play
 	def setup_board
 		get_cells
 		ready_array
