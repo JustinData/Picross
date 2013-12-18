@@ -2,6 +2,7 @@ class Puzzle < ActiveRecord::Base
 	has_many :cells
 	attr_reader :puzzle_array, :filled_cells, :counts
 
+
 	# Get the filled cells for the puzzle
 	def get_cells
 		@filled_cells = Cell.where(puzzle_id: self.id)
@@ -33,17 +34,16 @@ class Puzzle < ActiveRecord::Base
 		end
 	end
 
-	# Need a method to count blocks of filled cells in a row
-	def get_counts
-		@counts = {}
+	# Need a method to count blocks of filled cells for each row in a 2DArray
+	def check_counts(puzzle_array)
 		row_counts = []
 		row_length = self.y_size
 
-		@puzzle_array.each do |a|
+		puzzle_array.each do |a|
 			row_array = []
 			count = 0
 			checked = 0
-			binding.pry
+			
 			a.each do |v|
 				checked += 1
 				if v == 1
@@ -60,7 +60,15 @@ class Puzzle < ActiveRecord::Base
 			end
 			row_counts << row_array
 		end
-		@counts[:rows] = row_counts
+		@counts << row_counts
+	end
+
+	# Gets the counts for row and columns
+	def get_counts
+		@counts = []
+		check_counts(@puzzle_array)
+		new_array = @puzzle_array.transpose
+		check_counts(new_array)
 	end
 
 	# Called by the controller to prepare the game board for play
@@ -68,7 +76,8 @@ class Puzzle < ActiveRecord::Base
 		get_cells
 		ready_array
 		populate_array
-		get_counts	
+		get_counts
+		# check_counts(@puzzle_array)	
 	end
 end
 
