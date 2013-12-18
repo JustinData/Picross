@@ -49,3 +49,5 @@ gem 'foreigner'
 group :development do
 	gem 'pry-rails'
 end
+
+gem 'underscore-rails'
