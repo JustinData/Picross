@@ -1,0 +1,149 @@
+<html><head>
+  <title>Picross</title>
+  <link data-turbolinks-track="true" href="/assets/application.css?body=1" media="all" rel="stylesheet">
+  <script data-turbolinks-track="true" src="/assets/jquery.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/jquery_ujs.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/turbolinks.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/board.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/underscore.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/application.js?body=1"></script>
+  <meta content="authenticity_token" name="csrf-param">
+<meta content="ojGDIE/GVmwyOtCP13JulBH+1SlpXW0DvrC9FdzERf4=" name="csrf-token">
+</head>
+<body style="">
+
+
+Superman<br>
+10x10<br><br>
+<div class="gameboard" style="float: right; width:75%; padding:0px">
+	<div class="column-counts" style="float: right; background-color: blue; height: 100px; width: 100%;"></div>
+
+	<div class="row-counts" style="float:left; clear: both; background-color: blue; height: 300px; width: 15%"></div>
+
+	<div class="grid" style="float:right; width:85%">
+		<div class="grid-column" style="float: left; width:10%">
+				<div class="cell" id="x0y0" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x0y1" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x0y2" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x0y3" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x0y4" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x0y5" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x0y6" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x0y7" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x0y8" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x0y9" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+		</div>
+		<div class="grid-column" style="float: left; width:10%">
+				<div class="cell" id="x1y0" style="background-color: white; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x1y1" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x1y2" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x1y3" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x1y4" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x1y5" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x1y6" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x1y7" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x1y8" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x1y9" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+		</div>
+		<div class="grid-column" style="float: left; width:10%">
+				<div class="cell" id="x2y0" style="background-color: white; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x2y1" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x2y2" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x2y3" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x2y4" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x2y5" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x2y6" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x2y7" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x2y8" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x2y9" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+		</div>
+		<div class="grid-column" style="float: left; width:10%">
+				<div class="cell" id="x3y0" style="background-color: white; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x3y1" style="background-color: red; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x3y2" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x3y3" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x3y4" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x3y5" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x3y6" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x3y7" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x3y8" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x3y9" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+		</div>
+		<div class="grid-column" style="float: left; width:10%">
+				<div class="cell" id="x4y0" style="background-color: white; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x4y1" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x4y2" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x4y3" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x4y4" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x4y5" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x4y6" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x4y7" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x4y8" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x4y9" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+		</div>
+		<div class="grid-column" style="float: left; width:10%">
+				<div class="cell" id="x5y0" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x5y1" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x5y2" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x5y3" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x5y4" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x5y5" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x5y6" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x5y7" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x5y8" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x5y9" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+		</div>
+		<div class="grid-column" style="float: left; width:10%">
+				<div class="cell" id="x6y0" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x6y1" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x6y2" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x6y3" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x6y4" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x6y5" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x6y6" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x6y7" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x6y8" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x6y9" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+		</div>
+		<div class="grid-column" style="float: left; width:10%">
+				<div class="cell" id="x7y0" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x7y1" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x7y2" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x7y3" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x7y4" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x7y5" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x7y6" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x7y7" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x7y8" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x7y9" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+		</div>
+		<div class="grid-column" style="float: left; width:10%">
+				<div class="cell" id="x8y0" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x8y1" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x8y2" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x8y3" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x8y4" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x8y5" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x8y6" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x8y7" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x8y8" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x8y9" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+		</div>
+		<div class="grid-column" style="float: left; width:10%">
+				<div class="cell" id="x9y0" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x9y1" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x9y2" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x9y3" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x9y4" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x9y5" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x9y6" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x9y7" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x9y8" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+				<div class="cell" id="x9y9" style="background-color: DimGray; width: 100%; height: 10%; border: 1px solid;"></div>
+		</div>
+	</div>
+</div>
+
+
+
+</body></html>

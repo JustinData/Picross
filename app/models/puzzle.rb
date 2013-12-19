@@ -1,6 +1,6 @@
 class Puzzle < ActiveRecord::Base
 	has_many :cells
-	attr_reader :puzzle_array, :filled_cells, :counts
+	attr_reader :puzzle_array, :filled_cells, :counts, :max_cell_count_x, :max_cell_count_y, :cell_size, :board_width, :cell_width, :border, :row_counts_width, :column_counts_height, :row_counts_height, :row_count_max, :column_count_max
 
 
 	# Get the filled cells for the puzzle
@@ -63,6 +63,63 @@ class Puzzle < ActiveRecord::Base
 		@counts << row_counts
 	end
 
+	def set_cell_size
+
+		if self.x_size >= self.y_size
+			cell_count = self.x_size
+		else
+			cell_count = self.y_size
+		end
+
+		case cell_count
+		when 5
+			@cell_size = 60
+		when 10
+			@cell_size = 50
+		when 15
+			@cell_size = 40
+		when 20
+			@cell_size = 30
+		when 25
+			@cell_size = 20
+		end
+
+		@cell_width = @cell_size - (@border * 2)
+	end
+
+	def get_max_cell_count_x
+		@row_count_max = 0
+		@counts[0].each do |a|
+			if a.length > @row_count_max
+				@row_count_max = a.length
+			end
+		end
+		@max_cell_count_x = @row_count_max + self.x_size
+
+		@column_count_max = 0
+		@counts[1].each do |a|
+			if a.length > @column_count_max
+				@column_count_max = a.length
+			end
+		end
+		@max_cell_count_y = @column_count_max + self.y_size
+	end
+
+	def set_board_size
+		@board_width = @max_cell_count_x * @cell_size
+		@board_height = @max_cell_count_y * @cell_size
+		@row_counts_width = @row_count_max * @cell_size
+		@row_counts_height = self.y_size * @cell_size
+		@column_counts_height = @column_count_max * @cell_size
+	end
+
+	def set_sizes
+		@border = 1
+		set_cell_size
+		get_max_cell_count_x
+		set_board_size
+	end
+
 	# Gets the counts for row and columns
 	def get_counts
 		@counts = []
@@ -72,12 +129,13 @@ class Puzzle < ActiveRecord::Base
 	end
 
 	# Called by the controller to prepare the game board for play
+	# Method call order is important
 	def setup_board
 		get_cells
 		ready_array
 		populate_array
 		get_counts
-		# check_counts(@puzzle_array)	
+		set_sizes	
 	end
 end
 
