@@ -1,15 +1,40 @@
 <% px = @puzzle.x_size %>
 <% py = @puzzle.y_size %>
+<% pc = @puzzle.counts %>
 
-<%= @puzzle.name %><br>
-<%= px.to_s + "x" + py.to_s %><br><br>
-
-<div class="gameboard" style=<%= "width:#{@puzzle.board_width}px" %>>
-	<div class="column-counts" style='<%= "float:right; background-color:gray; height:#{@puzzle.column_counts_height}px; width:100%;" %>'>
-		
+<div class="topbar">
+	<div style="float:left">
+	<%= @puzzle.name %><br>
+	<%= px.to_s + "x" + py.to_s %>
 	</div>
 
-	<div class="row-counts" style='<%= "float:left; clear:both; background-color:gray; height:#{@puzzle.row_counts_height}px; width:#{@puzzle.row_counts_width}px" %>'></div>
+	<div style="float:right">
+		Lives: <section id="lives"></section>
+	</div>
+</div>
+
+<center><div class="gameboard" style=<%= "width:#{@puzzle.board_width + 1}px" %>>
+	<div class="column-counts" style='<%= "float:right; background-color:#0A2037; height:#{@puzzle.column_counts_height}px; width:100%;" %>'>
+		<% pc[1].reverse.each do |a| %>
+			<div class="column-count-column" style='<%= "height:100%; width:#{@puzzle.cell_size}px; float:right; position:relative" %>'>
+				<% bottom_value = 0 %>
+				<% a.reverse.each do |c| %>
+					<div class="column-count-cell"style="background-color: #93B2C6; width:<%= @puzzle.cell_width %>px; height: <%= @puzzle.cell_width %>px; border: <%= @puzzle.border %>px solid; float:right; position:absolute; bottom: <%= bottom_value %>px"><%= c %></div>
+					<% bottom_value += @puzzle.cell_size %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="row-counts" style='<%= "float:left; clear:both; background-color:#0A2037; height:#{@puzzle.row_counts_height}px; width:#{@puzzle.row_counts_width}px" %>'>
+		<% pc[0].each do |a| %>
+			<div class="row-count-row" style="float:right; width: 100%">
+				<% a.reverse.each do |c| %>
+					<div class="row-count-cell" style="background-color: #93B2C6; width:<%= @puzzle.cell_width %>px; height: <%= @puzzle.cell_width %>px; border: <%= @puzzle.border %>px solid; float:right"><%= c %></div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
 
 	<div class="grid">
 	<% ci = 0 %>
@@ -17,11 +42,11 @@
 		<div class="row" style="float: left;">
 			<% ri = 0 %>
 			<% px.times do |c| %>
-				<div class="cell" id= <%= "x" + ci.to_s + "y" + ri.to_s %> style="background-color: DimGray; width:<%= @puzzle.cell_width %>px; height: <%= @puzzle.cell_width %>px; border: <%= @puzzle.border %>px solid;"></div>
+				<div class="cell" id= <%= "x" + ci.to_s + "y" + ri.to_s %> style="background-color: #415765; width:<%= @puzzle.cell_width %>px; height: <%= @puzzle.cell_width %>px; border: <%= @puzzle.border %>px solid;"></div>
 				<% ri += 1 %>
 			<% end %>
 			<% ci += 1 %>
 		</div>
 	<% end %>
 	</div>
-</div>
+</div></center>

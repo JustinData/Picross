@@ -1,4 +1,6 @@
-var puzzleArray
+var puzzleArray;
+var lives = 5;
+var shiftFlag = false;
 
 function getPuzzle(){
 	var currentUrl = document.location.href;
@@ -26,7 +28,7 @@ function getArray(serverResponse){
 			var x = xi;
 			var y = yi;
 			
-			$("#" + selectorId).click(function(){
+			$("#" + selectorId).mousedown(function(){
 				// console.log(selectorId)
 				checkCell(x, y, selectorId);
 			});
@@ -41,13 +43,53 @@ function checkCell(x, y, cellId){
 	console.log(x, y);
 	var cellValue = puzzleArray[y][x]
 	if (cellValue === 1) {
-		$("#" + cellId).css("background-color", "white")
+		$("#" + cellId).css("background-color", "#D5F7FF")
 	} else if (cellValue === 0) {
-		$("#" + cellId).css("background-color", "red")
+		$("#" + cellId).css("background-color", "firebrick");
+		lives = lives - 1;
+		setLives(lives);
+		unbindListener(cellId);
 	}
 
 };
 
+function unbindListener(cellId){
+	$("#" + cellId).unbind();
+}
+
+function setLives(n){
+	lives = n
+	$('#lives').text(n);
+	if (lives === 0) {
+		$('div').unbind();
+	}
+}
+
+function setShiftListen(){
+	$(document).keydown(function(e) {
+    	if(e.which == 16) {
+        	shiftFlag = true;
+        	console.log(shiftFlag);
+    	}
+	});
+
+	$(document).keyup(function(e) {
+    	if(e.which == 16) {
+        	shiftFlag = true;
+        	console.log(shiftFlag);
+    	}
+	});
+}
+
 window.onload = function(){
 	getPuzzle();
+	setLives(5);
 };
+
+
+// keypress to work with 13 = enter
+// $(document).keypress(function(e) {
+//     if(e.which == 16) {
+//         alert('You pressed enter!');
+//     }
+// });

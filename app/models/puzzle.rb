@@ -139,6 +139,4 @@ class Puzzle < ActiveRecord::Base
 	end
 end
 
-# p.filled_cells.each do |c|
-# 	puts("x: " + c[:x].to_s + "y: " + c[:y].to_s)
-# end
+
