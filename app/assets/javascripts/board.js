@@ -1,15 +1,22 @@
 var puzzleArray;
 var lives = 5;
 var shiftFlag = false;
+var filledCount = 0
+var filledThisGame = 0
+var puzzleId = 0
 
-function getPuzzle(){
+function getPuzzleId(){
 	var currentUrl = document.location.href;
 	var currentPuzzle = currentUrl.substring(currentUrl.indexOf("s/")+2);
-	var puzzleId = parseInt(currentPuzzle);
+	puzzleId = parseInt(currentPuzzle);
+}
 
-	var urlToUse = "/json/puzzles/" + puzzleId + "/getboard" 
+function getPuzzle(){
+	getPuzzleId();
+
+	var getBoardUrl = "/json/puzzles/" + puzzleId + "/getboard" 
 	$.ajax({
-		url: urlToUse,
+		url: getBoardUrl,
 		type: "GET",
 		success: getArray
 	});
@@ -39,51 +46,76 @@ function getArray(serverResponse){
 	});
 };
 
-function checkCell(x, y, cellId){
-	console.log(x, y);
+function checkCell(x, y, selectorId){
+	// console.log(x, y);
 	var cellValue = puzzleArray[y][x]
 	if (cellValue === 1) {
-		$("#" + cellId).css("background-color", "#D5F7FF")
+		$("#" + selectorId).css("background-color", "#D5F7FF")
+		filledThisGame ++;
+		checkVictory();
 	} else if (cellValue === 0) {
-		$("#" + cellId).css("background-color", "firebrick");
+		$("#" + selectorId).css("background-color", "firebrick");
 		lives = lives - 1;
 		setLives(lives);
-		unbindListener(cellId);
 	}
-
+	unbindListener(selectorId);
 };
 
-function unbindListener(cellId){
-	$("#" + cellId).unbind();
+function unbindListener(selectorId){
+	$("#" + selectorId).unbind();
 }
 
+function setVictory(){
+	var getFilledUrl = 	 "/json/puzzles/" + puzzleId + "/getfilled"
+
+	$.ajax({
+		url:getFilledUrl,
+		type: "GET",
+		success: function(theResponse) {
+			filledCount = theResponse[0];
+		}
+	});	
+};
+
 function setLives(n){
-	lives = n
 	$('#lives').text(n);
-	if (lives === 0) {
+	checkDefeat(n)
+}
+
+function checkVictory() {
+	if (filledThisGame === filledCount) {
+		$('div').unbind();	
+	};
+};
+
+function checkDefeat(n) {
+	if (n === 0) {
 		$('div').unbind();
 	}
 }
 
-function setShiftListen(){
-	$(document).keydown(function(e) {
-    	if(e.which == 16) {
-        	shiftFlag = true;
-        	console.log(shiftFlag);
-    	}
-	});
+// SHIFT LISTENER FOR MARKING CELLS NOT YET WORKING
 
-	$(document).keyup(function(e) {
-    	if(e.which == 16) {
-        	shiftFlag = true;
-        	console.log(shiftFlag);
-    	}
-	});
-}
+// function setShiftListen(){
+// 	$(document).keydown(function(e) {
+//     	if(e.which == 16) {
+//         	shiftFlag = true;
+//         	console.log(shiftFlag);
+//     	}
+// 	});
+
+// 	$(document).keyup(function(e) {
+//     	if(e.which == 16) {
+//         	shiftFlag = true;
+//         	console.log(shiftFlag);
+//     	}
+// 	});
+// }
 
 window.onload = function(){
 	getPuzzle();
 	setLives(5);
+	setVictory();
 };
 
 

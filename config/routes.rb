@@ -9,6 +9,10 @@ Picross::Application.routes.draw do
 			member do 
 				get :getboard
 			end
+
+			member do
+				get :getfilled
+			end
 		end
 	end
 end
