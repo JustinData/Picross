@@ -85,6 +85,7 @@ function setLives(n){
 function checkVictory() {
 	if (filledThisGame === filledCount) {
 		$('div').unbind();	
+		showVictory();
 	};
 };
 
@@ -92,7 +93,37 @@ function checkDefeat(n) {
 	if (n === 0) {
 		$('div').unbind();
 	}
-}
+};
+
+function showVictory() {
+	var xi = 0;
+	_.each(puzzleArray, function(r){
+		var partialId = "x" + xi + "y";
+		var yi = 0;
+
+		_.each(r, function(c){
+			var selectorId = partialId + yi;
+			var x = xi;
+			var y = yi;
+			
+			var cellValue = puzzleArray[y][x]
+			if (cellValue === 1) {
+				$("#" + selectorId).css("background-color", "#D5F7FF");
+			} else if (cellValue === 0) {
+				$("#" + selectorId).css("background-color", "#071626");
+			};
+			$("#" + selectorId).css("border", "none");
+
+			yi ++;
+		});
+
+		xi ++
+	});
+};
+
+function showDefeat() {
+
+};
 
 // SHIFT LISTENER FOR MARKING CELLS NOT YET WORKING
 
