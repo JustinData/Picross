@@ -51,3 +51,5 @@ group :development do
 end
 
 gem 'underscore-rails'
+
+gem 'rails_12factor', group: :production

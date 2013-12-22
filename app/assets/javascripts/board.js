@@ -36,7 +36,6 @@ function getArray(serverResponse){
 			var y = yi;
 			
 			$("#" + selectorId).mousedown(function(){
-				// console.log(selectorId)
 				checkCell(x, y, selectorId);
 			});
 			yi ++;
@@ -92,6 +91,7 @@ function checkVictory() {
 function checkDefeat(n) {
 	if (n === 0) {
 		$('div').unbind();
+		showDefeat();
 	}
 };
 
@@ -122,8 +122,11 @@ function showVictory() {
 };
 
 function showDefeat() {
-
+	console.log("defeat");
 };
+
+// REFACTOR BOARD ITERATOR (getBoard, showVicotry, showDefeat)
+// function applyEachCell(){}
 
 // SHIFT LISTENER FOR MARKING CELLS NOT YET WORKING
 
