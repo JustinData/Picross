@@ -33,15 +33,26 @@ a:visited{
 }
 
 #lives{
-	color:firebrick;
+	color: firebrick;
 	font-size: 1em;
 }
 
 .cell{
 	background-color: #415765;
+	/*border-style: solid;
+	border-color: black;
+	color: firebrick;*/
 }
 
 .count-cell{
 	background-color: #93B2C6;
 	float: right;
+}
+
+.fill{
+	width: 90%;
+	height: 90%;
+	background-color: #D5F7FF;
+	border-radius: 15%;
+	margin-top: 5%;
 }

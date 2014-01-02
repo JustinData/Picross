@@ -30,7 +30,7 @@
 		<% pc[0].each do |a| %>
 			<div class="row-count-row" style="float:right; width: 100%">
 				<% a.reverse.each do |c| %>
-					<div class="count-cell" style="width:<%= @puzzle.cell_width %>px; height: <%= @puzzle.cell_width %>px; border: <%= @puzzle.border %>px solid;"><%= c %></div>
+					<div class="count-cell" style="width:<%= @puzzle.cell_width %>px; height: <%= @puzzle.cell_width %>px; border: <%= @puzzle.border %>px solid black;"><%= c %></div>
 				<% end %>
 			</div>
 		<% end %>

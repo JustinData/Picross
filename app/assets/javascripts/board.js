@@ -58,16 +58,18 @@ function getArray(serverResponse){
 function checkCell(x, y, selectorId){
 	var cellValue = puzzleArray[y][x];
 	if (cellValue === 1) {
-		$("#" + selectorId).css("background-color", "#D5F7FF")
+		$("#" + selectorId).html("<div class='fill'></div>")   //css("background-color", "#D5F7FF")
 		filledThisGame ++;
 		checkVictory();
 	} else if (cellValue === 0) {
-		$("#" + selectorId).css("background-color", "firebrick");
+		$("#" + selectorId).css("background-color", "firebrick");  //html("X")
 		lives = lives - 1;
 		setLives(lives);
 	}
 	unbindListener(selectorId);
 };
+
+
 
 //  Called to unbind the listener on a cell that has been clicked.  Used for correct and incorrect guesses.
 function unbindListener(selectorId){
@@ -137,7 +139,7 @@ function showVictory() {
 				$("#" + selectorId).css("background-color", "#071626");
 			};
 			$("#" + selectorId).css("border", "none");
-
+			$("#" + selectorId).html("");
 			yi ++;
 		});
 
