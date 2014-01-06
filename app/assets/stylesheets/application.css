@@ -63,8 +63,8 @@ a:visited{
 	float: left;
 	margin-left: 1%;
 	margin-bottom: 1%;
-	border-top-left-radius: 3% 15%;
-	border-bottom-left-radius: 3% 15%;
+	border-radius: 10px 8px;  /*3% 15%;*/
+	/*border-bottom-left-radius: 3% 15%;
 	border-top-right-radius: 3% 15%;
-	border-bottom-right-radius: 3% 15%;
+	border-bottom-right-radius: 3% 15%;*/
 }
