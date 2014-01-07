@@ -14,7 +14,7 @@
 </div>
 
 <center><div class="gameboard" style=<%= "width:#{@puzzle.board_width + 1}px" %>>
-	<div class="column-counts" style='<%= "float:right; height:#{@puzzle.column_counts_height}px; width:100%;" %>'>
+	<div class="column-counts" style='<%= "float:right; height:#{@puzzle.column_counts_height}px; width:100%; padding-right:3px" %>'>
 		<% pc[1].reverse.each do |a| %>
 			<div class="column-count-column" style='<%= "height:100%; width:#{@puzzle.cell_size}px; float:right; position:relative" %>'>
 				<% bottom_value = 0 %>

@@ -41,8 +41,12 @@ function getArray(serverResponse){
 			var x = xi;
 			var y = yi;
 			
-			$("#" + selectorId).mousedown(function(){
-				checkCell(x, y, selectorId);
+			$("#" + selectorId).mousedown(function(e){
+				if (e.shiftKey){
+					flagCell(selectorId);
+				} else {
+					checkCell(x, y, selectorId);
+				};
 			});
 			yi ++;
 		});
@@ -80,6 +84,13 @@ function unbindListener(selectorId){
 	$("#" + selectorId).unbind();
 }
 
+function flagCell(selectorId){
+	var $thisCell = $("#" + selectorId);
+	var fontSize = Math.floor($thisCell.height());
+	var divString = "<div class='flag' style='font-size:" + fontSize*.9 + "px'>X</div>"
+
+	$thisCell.html(divString);
+}
 
 //  Makes AJAX call to set the number for filled cells in the completed puzzle
 //  Filled cell count is the variable comapred to for checking for victory

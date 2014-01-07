@@ -1,6 +1,6 @@
 
 <ul>
 	<% @puzzles.each do |p|%>
-		<div class="puzzle-link"><%= link_to "#{p.name} #{p.x_size}x#{p.y_size}", puzzle_path(p[:id]) %></div>
+		<div class="puzzle-link"><div class="puzzle-name"><%= link_to "#{p.name}", puzzle_path(p[:id]) %></div><div class="puzzle-size"><%= link_to "#{p.x_size}x#{p.y_size}", puzzle_path(p[:id]) %></div></div>
 	<% end %>
 </ul>
