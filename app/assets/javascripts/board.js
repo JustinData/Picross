@@ -57,12 +57,16 @@ function getArray(serverResponse){
 //  If the cell is an incorrect guess, the cell is marked, the life total is decreased, and the setLives() function is called to show the new life total on the game board.
 function checkCell(x, y, selectorId){
 	var cellValue = puzzleArray[y][x];
+	var $thisCell = $("#" + selectorId);
+	var fontSize = Math.floor($thisCell.height());
+	var divString = "<div class='wrong' style='font-size:" + fontSize*.9 + "px'>X</div>"
+
 	if (cellValue === 1) {
-		$("#" + selectorId).html("<div class='fill'></div>")   //css("background-color", "#D5F7FF")
+		$thisCell.html("<div class='fill'></div>");   //css("background-color", "#D5F7FF")
 		filledThisGame ++;
 		checkVictory();
 	} else if (cellValue === 0) {
-		$("#" + selectorId).css("background-color", "firebrick");  //html("X")
+		$thisCell.html(divString);	//css("background-color", "firebrick");  
 		lives = lives - 1;
 		setLives(lives);
 	}
