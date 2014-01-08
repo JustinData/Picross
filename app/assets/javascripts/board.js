@@ -27,7 +27,7 @@ function getPuzzle(){
 
 //  Takes the puzzle key and assigns it to a variable
 //  Iterates over the puzzle key to add an even listener to each cell
-//  Event listeners each call checkCell() function
+//  Event listeners check for shift key flagging and calls checkCell() function when not flagging
 function getArray(serverResponse){
 	puzzleArray = serverResponse[0];
 
@@ -42,7 +42,7 @@ function getArray(serverResponse){
 			var y = yi;
 			
 			$("#" + selectorId).mousedown(function(e){
-				if (e.shiftKey){
+				if (e.ctrlKey){
 					flagCell(selectorId);
 				} else {
 					checkCell(x, y, selectorId);
@@ -88,8 +88,12 @@ function flagCell(selectorId){
 	var $thisCell = $("#" + selectorId);
 	var fontSize = Math.floor($thisCell.height());
 	var divString = "<div class='flag' style='font-size:" + fontSize*.9 + "px'>X</div>"
-
-	$thisCell.html(divString);
+	
+	if ($thisCell.html() === "") {
+		$thisCell.html(divString);
+	} else {
+		$thisCell.html("");
+	};
 }
 
 //  Makes AJAX call to set the number for filled cells in the completed puzzle
