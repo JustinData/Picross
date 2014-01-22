@@ -5,13 +5,13 @@ HTML 5 Picross
 
 
 #### Rules
-*The numbers on the top and left of the game board give clues about the columns and rows respectively.
-*The numbers indicate groups of filled cells in a row or column.
-*Each grouping will be separated by at least one empty cell.
-*Groupings will appear in the order they are displayed.
-*You can hold the ctrl key while clicking to flag cells you are unsure about.
-*Making an incorrect guess will cause the loss of one life.
-*A fully solved puzzle will reveal a picture.
+* The numbers on the top and left of the game board give clues about the columns and rows respectively.
+* The numbers indicate groups of filled cells in a row or column.
+* Each grouping will be separated by at least one empty cell.
+* Groupings will appear in the order they are displayed.
+* You can hold the ctrl key while clicking to flag cells you are unsure about.
+* Making an incorrect guess will cause the loss of one life.
+* A fully solved puzzle will reveal a picture.
 
 
 ###Technologies
