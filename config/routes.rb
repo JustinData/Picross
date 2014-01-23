@@ -3,6 +3,8 @@ Picross::Application.routes.draw do
 
 	root 'puzzles#index'
 
+	resource :rules, :only => [:show]
+
 	namespace :json, constraints: { format: 'json' }  do
 
 		resources :puzzles do

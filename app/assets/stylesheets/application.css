@@ -27,6 +27,11 @@ a:visited{
 	color:#0A2037;
 }
 
+article{
+	color:#93B2C6;
+	font-size: 1.5em;
+}
+
 .topbar{
 	color:white;
 	font-size: 1.5em;
@@ -77,9 +82,15 @@ a:visited{
 	font-weight: bold;
 }
 
+#puzzle-list{
+	width: 49%;
+	float:left;
+	clear:both;
+}
+
 .puzzle-link{
-	background-color: #D5F7FF;
-	width: 50%;
+	background-color: #93B2C6;
+	width: 100%;
 	float: left;
 	margin-left: 1%;
 	margin-bottom: 1%;
@@ -87,4 +98,23 @@ a:visited{
 	/*border-bottom-left-radius: 3% 15%;
 	border-top-right-radius: 3% 15%;
 	border-bottom-right-radius: 3% 15%;*/
+}
+
+.puzzle-name{
+	width: 60%;
+}
+
+.puzzle-size{
+	float: right;
+}
+
+#menu{
+	background-color: #93B2C6;
+	width: 49%;
+	float: left;
+	margin-left: 1%;
+	margin-bottom: 1%;
+	border-radius: 10px 8px;
+	font-size: .8em;
+	color:#0A2037;
 }

@@ -1,6 +1,13 @@
+<div id="menu">
+	<center><%= link_to "How to play", rules_path %></center>
+</div>
 
-<ul>
+<div id="puzzle-list">
 	<% @puzzles.each do |p|%>
-		<div class="puzzle-link"><div class="puzzle-name"><%= link_to "#{p.name}", puzzle_path(p[:id]) %></div><div class="puzzle-size"><%= link_to "#{p.x_size}x#{p.y_size}", puzzle_path(p[:id]) %></div></div>
+		<div class="puzzle-link">
+			<div class="puzzle-name"><%= link_to "#{p.name}", puzzle_path(p[:id]) %></div>
+			<div class="puzzle-size"><%= link_to "#{p.x_size}x#{p.y_size}", puzzle_path(p[:id]) %></div>
+		</div>
 	<% end %>
-</ul>
+</div>
+
