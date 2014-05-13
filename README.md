@@ -27,4 +27,4 @@ HTML 5 Picross
 * Add a puzzle creator so that new puzzles can be added by drawing them in the grid.
 * Use SASS to implement theming.
 * Move board building logic from Ruby to JavaScript.
-* Convert the gameboard to being drawn in Canvas, possibly using Kinetic.js.
+* Convert the gameboard to being drawn in SVG using D3.js, or Canvas possibly using Kinetic.js.
